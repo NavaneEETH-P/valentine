@@ -1,63 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Gayathri 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    body { 
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       text-align: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     }
-
-    .card {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    .tap-cover {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2;
     }
-
     button {
       padding: 12px 25px;
       font-size: 18px;
-      border-radius: 30px;
       border: none;
+      border-radius: 30px;
       cursor: pointer;
     }
-
     #yes { background: #ff4d6d; color: white; }
-    #no  { background: #ddd; position: absolute; }
-
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      z-index: 10;
-      cursor: pointer;
-    }
+    #no { background: #ddd; position: absolute; }
   </style>
 </head>
 <body>
 
-<!-- Tap-to-start overlay -->
-<div class="overlay" onclick="startMusic()">
-  Tap anywhere 💖
-</div>
+<div class="tap-cover" onclick="startAudio()">Tap anywhere 💖</div>
 
-<audio id="music" loop>
+<audio id="bgMusic" loop preload="auto">
   <source src="love.mp3" type="audio/mpeg">
 </audio>
 
-<div class="card">
+<div>
   <h1>Gayathri 💖</h1>
   <p>Will you be my Valentine?</p>
   <button id="yes" onclick="yesClicked()">Yes 💕</button>
@@ -65,22 +54,20 @@
 </div>
 
 <script>
-  function startMusic() {
-    document.getElementById("music").play();
-    document.querySelector(".overlay").style.display = "none";
+  function startAudio() {
+    const audio = document.getElementById("bgMusic");
+    audio.play().catch(e => console.log(e));
+    document.querySelector(".tap-cover").style.display = "none";
   }
-
   function moveNo() {
-    document.getElementById("no").style.left =
-      Math.random() * 300 + "px";
+    document.getElementById("no").style.left = Math.random()*250 + "px";
   }
-
   function yesClicked() {
-    document.body.innerHTML =
-      "<h1 style='color:white'>Gayathri 💕🥰<br>You said YES 💖</h1>";
+    document.body.innerHTML = "<h1 style='color:white;font-size:38px;'>Gayathri 💕🥰<br>You said YES 💖</h1>";
   }
 </script>
 
 </body>
 </html>
+
 

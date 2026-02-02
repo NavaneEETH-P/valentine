@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Gayathri 💖</title>
+  <title>For Gayathri 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -18,7 +18,7 @@
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.7);
       color: white;
       font-size: 24px;
       display: flex;
@@ -30,8 +30,8 @@
     button {
       padding: 12px 25px;
       font-size: 18px;
-      border-radius: 30px;
       border: none;
+      border-radius: 30px;
       cursor: pointer;
     }
     #yes { background: #ff4d6d; color: white; }
@@ -40,9 +40,9 @@
 </head>
 <body>
 
-<div class="overlay" onclick="startMusic()">Tap once 💖</div>
+<div class="overlay" onclick="startMusic()">Tap once for surprise 💖</div>
 
-<audio id="music" loop>
+<audio id="bgMusic" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1c6c9f8c55.mp3" type="audio/mpeg">
 </audio>
 
@@ -55,24 +55,24 @@
 
 <script>
   function startMusic() {
-    const m = document.getElementById("music");
-    m.play();
+    const audio = document.getElementById("bgMusic");
+    audio.play().catch(e => console.log(e));
     document.querySelector(".overlay").style.display = "none";
   }
 
   function moveNo() {
-    document.getElementById("no").style.left =
-      Math.random() * 250 + "px";
+    document.getElementById("no").style.left = Math.random() * 200 + "px";
   }
 
   function yesClicked() {
-    document.body.innerHTML =
-      "<h1 style='color:white;font-size:38px;'>Gayathri 💕🥰<br>You said YES 💖</h1>";
+    document.body.innerHTML = "<h1 style='color:white;font-size:40px;'>Gayathri 💕🥰<br>You said YES 💖</h1>";
   }
 </script>
 
 </body>
 </html>
+
+
 
 
 
